@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="watch">Смотреть</string>
+	<string name="in_trend">В тренде</string>
+	<string name="recent">Вы смотрели</string>
+	<string name="new_text">Новое</string>
+	<string name="for_you">Для вас</string>
+	<string name="interests">Указать интересы</string>
+</resources>

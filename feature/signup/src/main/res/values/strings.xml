@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="firstName">Имя</string>
+	<string name="lastName">Фамилия</string>
+	<string name="email">Email</string>
+	<string name="password">Пароль</string>
+	<string name="password_repeat">Повторите пароль</string>
+	<string name="sign_up">Зарегистрироваться</string>
+	<string name="to_sign_in">У меня уже есть аккаунт</string>
+
+	<string name="different_passwords_error">Пароли не совпадают</string>
+</resources>

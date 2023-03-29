@@ -1,0 +1,28 @@
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+		google()
+		mavenCentral()
+	}
+}
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
+		google()
+		mavenCentral()
+	}
+}
+rootProject.name = "WorldCinema"
+include ':app'
+include ':core'
+include ':feature'
+include ':shared'
+include ':core:navigation'
+include ':core:theme'
+include ':core:network'
+include ':feature:splash'
+include ':feature:signIn'
+include ':core:extensions'
+include ':feature:signup'
+include ':shared:validators'
+include ':feature:main'

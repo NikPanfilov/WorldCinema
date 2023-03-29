@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="email_empty">Email не может быть пустым</string>
+	<string name="email_incorrect_name">Некорректное имя</string>
+	<string name="email_incorrect_domain_name">Некорректный домен</string>
+
+	<string name="firstname_empty">Имя не может быть пустым</string>
+	<string name="firstname_incorrect_symbols">Имя может содеражать только буквы</string>
+	<string name="firstname_different_locals">Имя должно состоять из букв одной локали</string>
+
+	<string name="lastname_empty">Фамилия не может быть пустой</string>
+	<string name="lastname_incorrect_symbols">Фамилия может содеражать только буквы</string>
+	<string name="lastname_different_locals">Фамилия должна состоять из букв одной локали</string>
+
+	<string name="password_empty">Пароль не может быть пустым</string>
+	<string name="password_must_contain_digits">Пароль должен содержать цифры</string>
+	<string name="password_must_contain_lower_case">Пароль должен содержать символы в нижнем регистре</string>
+	<string name="password_must_contain_upper_case">Пароль должен содержать символы в верхнем регистре</string>
+	<string name="password_small_length">Пароль должен быть длиннее 8 символов</string>
+</resources>
