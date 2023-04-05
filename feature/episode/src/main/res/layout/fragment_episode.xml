@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/black">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<com.google.android.exoplayer2.ui.PlayerView
+			android:id="@+id/playerView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:minHeight="200dp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+
+		</com.google.android.exoplayer2.ui.PlayerView>
+
+		<ImageButton
+			android:id="@+id/backButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="16dp"
+			android:background="@android:color/transparent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:srcCompat="@drawable/arrow_back" />
+
+		<TextView
+			android:id="@+id/episodeTitleTextView"
+			style="@style/TextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:text="@string/episode_name_placeholder"
+			android:textColor="@color/white"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/playerView" />
+
+		<TextView
+			android:id="@+id/movieTitleTextView"
+			style="@style/TextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:text="@string/movie_name_placeholder"
+			android:textColor="@color/white"
+			android:textSize="12sp"
+			app:layout_constraintStart_toEndOf="@+id/moviePosterImageView"
+			app:layout_constraintTop_toTopOf="@+id/moviePosterImageView" />
+
+		<TextView
+			android:id="@+id/seasonNumberTextView"
+			style="@style/TextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="4dp"
+			android:text="@string/season_number_placeholder"
+			android:textColor="@color/dark_gray"
+			android:textSize="12sp"
+			app:layout_constraintStart_toStartOf="@+id/movieTitleTextView"
+			app:layout_constraintTop_toBottomOf="@+id/movieTitleTextView" />
+
+		<TextView
+			android:id="@+id/yearsTextView"
+			style="@style/TextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="4dp"
+			android:text="@string/years_placeholder"
+			android:textColor="@color/dark_gray"
+			android:textSize="12sp"
+			app:layout_constraintStart_toStartOf="@+id/seasonNumberTextView"
+			app:layout_constraintTop_toBottomOf="@+id/seasonNumberTextView" />
+
+		<ImageView
+			android:id="@+id/moviePosterImageView"
+			android:layout_width="44dp"
+			android:layout_height="64dp"
+			android:layout_marginTop="16dp"
+			android:adjustViewBounds="true"
+			android:scaleType="centerInside"
+			app:layout_constraintStart_toStartOf="@+id/episodeTitleTextView"
+			app:layout_constraintTop_toBottomOf="@+id/episodeTitleTextView"
+			app:srcCompat="@drawable/moive_poster_placeholder" />
+
+		<ImageButton
+			android:id="@+id/commentsButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="22dp"
+			android:background="@android:color/transparent"
+			android:scaleType="centerCrop"
+			app:layout_constraintBottom_toBottomOf="@+id/addToCollectionButton"
+			app:layout_constraintEnd_toStartOf="@id/addToCollectionButton"
+			app:layout_constraintTop_toTopOf="@+id/addToCollectionButton"
+			app:srcCompat="@drawable/comments" />
+
+		<Spinner
+			android:id="@+id/addToCollectionButton"
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_marginEnd="22dp"
+			android:background="@drawable/plus"
+			android:scaleType="centerCrop"
+			app:layout_constraintBottom_toBottomOf="@+id/favouriteButton"
+			app:layout_constraintEnd_toStartOf="@id/favouriteButton"
+			app:layout_constraintTop_toTopOf="@+id/favouriteButton" />
+
+		<ImageButton
+			android:id="@+id/favouriteButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="18dp"
+			android:background="@android:color/transparent"
+			android:scaleType="centerCrop"
+			app:layout_constraintBottom_toBottomOf="@+id/moviePosterImageView"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="@+id/moviePosterImageView"
+			app:srcCompat="@drawable/heart" />
+
+		<TextView
+			android:id="@+id/descriptionTitleTextView"
+			style="@style/TextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="32dp"
+			android:text="@string/description_title"
+			android:textColor="@color/white"
+			app:layout_constraintStart_toStartOf="@+id/moviePosterImageView"
+			app:layout_constraintTop_toBottomOf="@+id/moviePosterImageView" />
+
+		<TextView
+			android:id="@+id/descriptionTextView"
+			style="@style/TextView"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="16dp"
+			android:layout_marginTop="8dp"
+			android:text="@string/description_placeholder"
+			android:textColor="@color/white"
+			android:textSize="14sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="@+id/descriptionTitleTextView"
+			app:layout_constraintTop_toBottomOf="@+id/descriptionTitleTextView" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
