@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="age_18">#EF3A01</color>
+	<color name="age_16">#F26E45</color>
+	<color name="age_12">#F4A992</color>
+	<color name="age_6">#FAD5C9</color>
+	<color name="age_0">#FFFFFF</color>
+</resources>
