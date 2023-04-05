@@ -1,6 +1,5 @@
 package com.nikpanfilov.core.network.interceptors
 
-import com.nikpanfilov.core.network.token.domain.usecase.LoadTokenUseCase
 import com.nikpanfilov.core.network.token.domain.usecase.RefreshTokensUseCase
 import com.nikpanfilov.core.network.token.domain.usecase.SaveTokenUseCase
 import kotlinx.coroutines.CoroutineScope
@@ -23,7 +22,7 @@ class TokenAuthenticator(
 		// Обновляем токен при первой попытке
 		if (responseCount(response) == 2) {
 			val tokenPair = runBlocking { refreshTokensUseCase() }
-			// TODO("RunBlocking - кринж? Можно заменить на launch, но нужно ли?")
+			// TODO("По хорошему заменить на launch")
 			saveTokenUseCase(tokenPair)
 
 			return response.request
