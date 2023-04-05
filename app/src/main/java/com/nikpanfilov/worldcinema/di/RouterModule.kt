@@ -1,11 +1,15 @@
 package com.nikpanfilov.worldcinema.di
 
+import com.nikpanfilov.episode.presentation.EpisodeRouter
 import com.nikpanfilov.main.presentation.MainRouter
+import com.nikpanfilov.movie.presentation.MovieRouter
 import com.nikpanfilov.signin.presentation.SignInRouter
 import com.nikpanfilov.signup.presentation.SignUpRouter
 import com.nikpanfilov.splash.presentation.SplashRouter
+import com.nikpanfilov.worldcinema.navigation.EpisodeRouterImpl
 import com.nikpanfilov.worldcinema.navigation.MainActivityRouterImpl
 import com.nikpanfilov.worldcinema.navigation.MainRouterImpl
+import com.nikpanfilov.worldcinema.navigation.MovieRouterImpl
 import com.nikpanfilov.worldcinema.navigation.SignInRouterImpl
 import com.nikpanfilov.worldcinema.navigation.SignUpRouterImpl
 import com.nikpanfilov.worldcinema.navigation.SplashRouterImpl
@@ -18,4 +22,6 @@ val routerModule = module {
 	factory<SignInRouter> { SignInRouterImpl(get()) }
 	factory<SignUpRouter> { SignUpRouterImpl(get()) }
 	factory<MainRouter> { MainRouterImpl(get()) }
+	factory<MovieRouter> { MovieRouterImpl(get()) }
+	factory<EpisodeRouter> { EpisodeRouterImpl(get()) }
 }

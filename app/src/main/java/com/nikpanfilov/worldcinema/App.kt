@@ -2,7 +2,9 @@ package com.nikpanfilov.worldcinema
 
 import android.app.Application
 import com.nikpanfilov.worldcinema.di.appModule
+import com.nikpanfilov.worldcinema.di.episodeModule
 import com.nikpanfilov.worldcinema.di.mainModule
+import com.nikpanfilov.worldcinema.di.movieModule
 import com.nikpanfilov.worldcinema.di.networkModule
 import com.nikpanfilov.worldcinema.di.routerModule
 import com.nikpanfilov.worldcinema.di.signInModule
@@ -48,6 +50,8 @@ class App : Application() {
 			modules(signInModule)
 			modules(signUpModule)
 			modules(mainModule)
+			modules(movieModule)
+			modules(episodeModule)
 		}
 	}
 }
