@@ -6,13 +6,13 @@ data class Episode(
 	val episodeId: String,
 	val name: String,
 	val description: String,
-	val director: String,
-	val stars: List<String>,
-	val year: String,
-	val images: List<String>,
-	val runtime: Int,
-	val preview: String,
-	val filePath: String
+	val filePath: String,
+	val movieId: String,
+	val movieName: String,
+	val moviePoster: String,
+	val movieYears: String,
+	val chatId: String,
+	val chatName:String
 )
 
 internal fun EpisodeHolder.toEpisode() =
@@ -20,11 +20,11 @@ internal fun EpisodeHolder.toEpisode() =
 		episodeId = episodeId,
 		name = name,
 		description = description,
-		director = director,
-		stars = stars,
-		year = year,
-		images = images,
-		runtime = runtime,
-		preview = preview,
-		filePath = filePath
+		filePath = filePath,
+		movieId = movieId,
+		movieName = movieName,
+		moviePoster = moviePoster,
+		movieYears = movieYears,
+		chatId = chatId,
+		chatName = chatName
 	)

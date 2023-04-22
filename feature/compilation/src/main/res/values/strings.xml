@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="movie_name_placeholder">Altered Carbon</string>
+	<string name="no_movies">Новые фильмы\nв подборке закончились</string>
+	<string name="dislike">Удалить фильм из подборки</string>
+	<string name="play">Смотреть фильм</string>
+	<string name="add_to_favourite">Добавить фильм в избранное</string>
+</resources>

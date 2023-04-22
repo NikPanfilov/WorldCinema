@@ -1,8 +1,11 @@
 package com.nikpanfilov.main.presentation
 
+import com.nikpanfilov.core.navigation.holders.EpisodeHolder
+import com.nikpanfilov.core.navigation.holders.MovieHolder
+
 interface MainRouter {
 
-	fun navigateToMovie(id: String)
+	fun navigateToMovie(movie: MovieHolder)
 
-	fun navigateToEpisode(id: String)
+	fun navigateToEpisode(episode: EpisodeHolder)
 }

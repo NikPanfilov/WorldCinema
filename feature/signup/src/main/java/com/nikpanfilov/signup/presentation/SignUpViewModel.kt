@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nikpanfilov.core.network.token.domain.usecase.SaveTokenUseCase
 import com.nikpanfilov.core.network.utils.CoroutineNetworkExceptionHandler
+import com.nikpanfilov.shared.collections.domain.usecase.CreateFavouriteCollectionUseCase
+import com.nikpanfilov.shared.profile.domain.usecase.SaveUserIdUseCase
 import com.nikpanfilov.signup.R
 import com.nikpanfilov.signup.domain.entity.RegistrationBody
 import com.nikpanfilov.signup.domain.usecase.SignUpUseCase
@@ -23,7 +25,9 @@ class SignUpViewModel(
 	private val validateFirstNameUseCase: ValidateFirstNameUseCase,
 	private val validateLastNameUseCase: ValidateLastNameUseCase,
 	private val validateEmailUseCase: ValidateEmailUseCase,
-	private val validatePasswordUseCase: ValidatePasswordUseCase
+	private val validatePasswordUseCase: ValidatePasswordUseCase,
+	private val createFavouriteCollectionUseCase: CreateFavouriteCollectionUseCase,
+	private val saveUserIdUseCase: SaveUserIdUseCase
 ) : ViewModel() {
 
 	val firstNameFlow = MutableStateFlow<String?>(null)
@@ -61,12 +65,15 @@ class SignUpViewModel(
 					password = passwordFlow.value ?: error("Password can't be null")
 				)
 			)
+
 			saveTokenUseCase(tokens)
+			saveUserIdUseCase()
+			createFavouriteCollectionUseCase()
+
 			_stateFlow.value = contentState.copy(sendState = SignUpSendState.Success)
 		}
 	}
 
-	//TODO(Заменить это на что-нибудь вменяемое)
 	private fun isSignUpDataValid() =
 		getFirstNameError() == null &&
 			getLastNameError() == null &&

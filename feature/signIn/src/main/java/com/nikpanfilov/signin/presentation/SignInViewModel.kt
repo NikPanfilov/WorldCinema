@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nikpanfilov.core.network.token.domain.usecase.SaveTokenUseCase
 import com.nikpanfilov.core.network.utils.CoroutineNetworkExceptionHandler
+import com.nikpanfilov.shared.profile.domain.usecase.SaveUserIdUseCase
 import com.nikpanfilov.signin.R
 import com.nikpanfilov.signin.domain.entity.AuthCredential
 import com.nikpanfilov.signin.domain.usecase.SignInUseCase
@@ -17,7 +18,8 @@ class SignInViewModel(
 	private val router: SignInRouter,
 	private val signInUseCase: SignInUseCase,
 	private val validateEmailUseCase: ValidateEmailUseCase,
-	private val saveTokenUseCase: SaveTokenUseCase
+	private val saveTokenUseCase: SaveTokenUseCase,
+	private val saveUserIdUseCase: SaveUserIdUseCase
 ) : ViewModel() {
 
 	val emailMutableFlow = MutableStateFlow<String?>(null)
@@ -51,7 +53,9 @@ class SignInViewModel(
 				)
 			)
 			saveTokenUseCase(tokens)
+			saveUserIdUseCase()
 
+			navigateToMain()
 			_stateFlow.value = contentState.copy(sendState = SignInSendState.Success)
 		}
 	}

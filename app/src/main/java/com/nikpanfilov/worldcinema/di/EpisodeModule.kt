@@ -1,7 +1,6 @@
 package com.nikpanfilov.worldcinema.di
 
 import com.nikpanfilov.core.navigation.holders.EpisodeHolder
-import com.nikpanfilov.core.navigation.holders.MovieInfoHolder
 import com.nikpanfilov.core.network.createRetrofitService
 import com.nikpanfilov.episode.data.api.TimeApi
 import com.nikpanfilov.episode.data.datasource.TimeDataSource
@@ -16,13 +15,15 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val episodeModule = module {
-	viewModel { (episode: EpisodeHolder, movieInfo: MovieInfoHolder) ->
+	viewModel { (episode: EpisodeHolder) ->
 		EpisodeViewModel(
 			router = get(),
 			getTimeUseCase = get(),
 			setTimeUseCase = get(),
+			addMovieToCollectionUseCase = get(),
+			getFavouriteCollectionIdUseCase = get(),
 			episodeHolder = episode,
-			movieInfoHolder = movieInfo
+			getCollectionsUseCase = get()
 		)
 	}
 

@@ -1,8 +1,5 @@
 package com.nikpanfilov.worldcinema.di
 
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.qualifier.named
-import org.koin.dsl.module
 import com.nikpanfilov.core.network.interceptors.loggingInterceptor
 import com.nikpanfilov.core.network.interceptors.noConnectionInterceptor
 import com.nikpanfilov.core.network.interceptors.tokenInterceptor
@@ -10,6 +7,9 @@ import com.nikpanfilov.core.network.provider.provideMoshi
 import com.nikpanfilov.core.network.provider.provideOkHttpClient
 import com.nikpanfilov.core.network.provider.provideRetrofit
 import com.nikpanfilov.worldcinema.App.Companion.BACKEND
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.qualifier.named
+import org.koin.dsl.module
 
 const val LOG_INTERCEPTOR = "logInterceptor"
 const val NO_CONNECT_INTERCEPTOR = "noConnectionInterceptor"

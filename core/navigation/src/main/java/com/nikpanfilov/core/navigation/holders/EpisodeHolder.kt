@@ -6,11 +6,11 @@ class EpisodeHolder(
 	val episodeId: String,
 	val name: String,
 	val description: String,
-	val director: String,
-	val stars: List<String>,
-	val year: String,
-	val images: List<String>,
-	val runtime: Int,
-	val preview: String,
-	val filePath: String
+	val filePath: String,
+	val movieId: String,
+	val movieName: String,
+	val moviePoster: String,
+	val movieYears: String,
+	val chatId: String,
+	val chatName: String
 ) : Serializable

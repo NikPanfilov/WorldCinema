@@ -10,6 +10,7 @@ dependencyResolutionManagement {
 	repositories {
 		google()
 		mavenCentral()
+		jcenter()
 	}
 }
 rootProject.name = "WorldCinema"
@@ -20,9 +21,20 @@ include ':shared'
 include ':core:navigation'
 include ':core:theme'
 include ':core:network'
+include ':core:extensions'
+include ':shared:validators'
+include ':shared:collections'
+include ':shared:movie'
 include ':feature:splash'
 include ':feature:signIn'
-include ':core:extensions'
 include ':feature:signup'
-include ':shared:validators'
 include ':feature:main'
+include ':feature:movie'
+include ':feature:episode'
+include ':feature:profile'
+include ':feature:compilation'
+include ':feature:collections'
+include ':feature:chats'
+include ':feature:chats:chats-list'
+include ':feature:chats:chat'
+include ':shared:profile'

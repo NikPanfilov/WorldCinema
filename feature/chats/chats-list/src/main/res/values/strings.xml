@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="chats">Обсуждения</string>
+	<string name="movie_name">Стрела</string>
+	<string name="message"><font color="gray">Иван</font>: Смотрели уже последнюю серию? Я просто поверить не мог…</string>
+	<string name="you">Вы</string>
+</resources>

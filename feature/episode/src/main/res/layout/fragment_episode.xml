@@ -9,6 +9,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
+		<!--TODO(Сделать элементы управления) 		-->
 		<com.google.android.exoplayer2.ui.PlayerView
 			android:id="@+id/playerView"
 			android:layout_width="match_parent"
@@ -20,7 +21,7 @@
 
 		</com.google.android.exoplayer2.ui.PlayerView>
 
-		<ImageButton
+		<ImageView
 			android:id="@+id/backButton"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -96,13 +97,14 @@
 			android:layout_marginEnd="22dp"
 			android:background="@android:color/transparent"
 			android:scaleType="centerCrop"
-			app:layout_constraintBottom_toBottomOf="@+id/addToCollectionButton"
-			app:layout_constraintEnd_toStartOf="@id/addToCollectionButton"
-			app:layout_constraintTop_toTopOf="@+id/addToCollectionButton"
+			app:layout_constraintBottom_toBottomOf="@+id/addToCollectionSpinner"
+			app:layout_constraintEnd_toStartOf="@id/addToCollectionSpinner"
+			app:layout_constraintTop_toTopOf="@+id/addToCollectionSpinner"
 			app:srcCompat="@drawable/comments" />
 
+		<!--TODO(Нерабочая заглушка) 		-->
 		<Spinner
-			android:id="@+id/addToCollectionButton"
+			android:id="@+id/addToCollectionSpinner"
 			android:layout_width="wrap_content"
 			android:layout_height="0dp"
 			android:layout_marginEnd="22dp"

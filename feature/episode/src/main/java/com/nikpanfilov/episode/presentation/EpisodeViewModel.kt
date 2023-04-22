@@ -3,13 +3,16 @@ package com.nikpanfilov.episode.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nikpanfilov.core.navigation.holders.EpisodeHolder
-import com.nikpanfilov.core.navigation.holders.MovieInfoHolder
 import com.nikpanfilov.core.network.utils.CoroutineNetworkExceptionHandler
 import com.nikpanfilov.episode.domain.entity.EpisodeTime
 import com.nikpanfilov.episode.domain.entity.toEpisode
-import com.nikpanfilov.episode.domain.entity.toMovieInfo
 import com.nikpanfilov.episode.domain.usecase.GetTimeUseCase
 import com.nikpanfilov.episode.domain.usecase.SetTimeUseCase
+import com.nikpanfilov.shared.collections.domain.entity.Collection
+import com.nikpanfilov.shared.collections.domain.entity.MovieValue
+import com.nikpanfilov.shared.collections.domain.usecase.AddMovieToCollectionUseCase
+import com.nikpanfilov.shared.collections.domain.usecase.GetCollectionsUseCase
+import com.nikpanfilov.shared.collections.domain.usecase.GetFavouriteCollectionIdUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,17 +22,20 @@ class EpisodeViewModel(
 	private val router: EpisodeRouter,
 	private val getTimeUseCase: GetTimeUseCase,
 	private val setTimeUseCase: SetTimeUseCase,
+	private val addMovieToCollectionUseCase: AddMovieToCollectionUseCase,
+	private val getFavouriteCollectionIdUseCase: GetFavouriteCollectionIdUseCase,
 	episodeHolder: EpisodeHolder,
-	movieInfoHolder: MovieInfoHolder
+	private val getCollectionsUseCase: GetCollectionsUseCase
 ) : ViewModel() {
 
 	val episode = episodeHolder.toEpisode()
-	val movieInfo = movieInfoHolder.toMovieInfo()
 	var episodeTime: Long = 0
 
 	private val _stateFlow = MutableStateFlow<EpisodeState>(EpisodeState.Initial)
 	val stateFlow: Flow<EpisodeState>
 		get() = _stateFlow.asStateFlow()
+
+	val collectionsFlow: MutableStateFlow<List<Collection>> = MutableStateFlow(listOf())
 
 	private val sendErrorHandler = CoroutineNetworkExceptionHandler { code ->
 		val content = _stateFlow.value as? EpisodeState.Content ?: return@CoroutineNetworkExceptionHandler
@@ -42,22 +48,35 @@ class EpisodeViewModel(
 		viewModelScope.launch(sendErrorHandler) {
 			episodeTime = getTimeUseCase(episode.episodeId).timeInSeconds ?: 0
 		}
+		getCollections()
 	}
 
-	fun addToCollection() {
+	private fun getCollections(){
+		viewModelScope.launch(sendErrorHandler) {
+			collectionsFlow.value = getCollectionsUseCase()
+		}
+	}
 
+	fun addToCollection(collectionId: String) {
+		viewModelScope.launch(sendErrorHandler) {
+			addMovieToCollectionUseCase(collectionId, MovieValue(episode.movieId))
+		}
 	}
 
 	fun addToFavourite() {
-
+		viewModelScope.launch(sendErrorHandler) {
+			addToCollection(getFavouriteCollectionIdUseCase())
+		}
 	}
 
-	fun navigateToComments(viewedTime: Long) {
+	fun navigateBack(viewedTime: Long) {
 		saveViewTime(viewedTime)
+		router.navigateBack()
 	}
 
-	fun navigateToMovie(viewedTime: Long) {
+	fun navigateToChat(viewedTime: Long) {
 		saveViewTime(viewedTime)
+		router.navigateToChat(episode.chatId, episode.chatName)
 	}
 
 	private fun saveViewTime(time: Long) {

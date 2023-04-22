@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="collection_name_placeholder">Когда-нибудь</string>
+	<string name="collections">Коллекции</string>
+	<string name="delete">Удалить</string>
+	<string name="create_collection">Создать коллекцию</string>
+	<string name="edit_collection">Изменить коллекцию</string>
+	<string name="name">Название</string>
+	<string name="choose_icon">Выбрать иконку</string>
+	<string name="save">Сохранить</string>
+</resources>

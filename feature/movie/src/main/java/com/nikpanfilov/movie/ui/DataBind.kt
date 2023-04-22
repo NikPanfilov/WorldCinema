@@ -1,7 +1,6 @@
 package com.nikpanfilov.movie.ui
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
@@ -21,18 +20,22 @@ internal fun FragmentMovieBinding.bindData(viewModel: MovieViewModel, scope: Lif
 
 		coverImageView.setImage(movie.poster)
 
+		backButton.setOnClickListener { viewModel.navigateBack() }
+
 		if (episodesFlow.value?.isNotEmpty() == true) {
 			watchButton.setOnClickListener { navigateToEpisode(episodesFlow.value!![0]) }
 			watchButton.visibility = View.VISIBLE
-		} else watchButton.visibility = View.GONE
+		} else {
+			watchButton.visibility = View.GONE
+		}
 
 		ageTextView.text = movie.age
 		ageTextView.setAgeColor(context)
 
-		commentsButton.setOnClickListener { navigateToComments() }
+		commentsButton.setOnClickListener { navigateToChat() }
 
+		tagsFlexBox.removeAllViews()
 		viewModel.movie.tags.forEach {
-			tagsFlexBox.removeAllViews()
 			val tagView = TagItemBinding.inflate(LayoutInflater.from(context), tagsFlexBox, false)
 			tagView.tagTextView.text = it.tagName
 			tagsFlexBox.addView(tagView.root)
@@ -43,13 +46,15 @@ internal fun FragmentMovieBinding.bindData(viewModel: MovieViewModel, scope: Lif
 		val shotsAdapter = ShotsAdapter()
 		shotsRecyclerView.adapter = shotsAdapter
 		shotsAdapter.data = movie.images
-		if (movie.images.isEmpty()) setShotsViewVisibility(View.GONE)
-		else setShotsViewVisibility(View.VISIBLE)
+		if (movie.images.isEmpty()) {
+			setShotsViewVisibility(View.GONE)
+		} else {
+			setShotsViewVisibility(View.VISIBLE)
+		}
 
 		val episodesAdapter = EpisodesAdapter(viewModel::navigateToEpisode)
 		episodesRecyclerView.adapter = episodesAdapter
 		viewModel.episodesFlow.launch(scope) {
-			Log.i("episodes", it.toString())
 			if (it != null && it.isNotEmpty()) {
 				episodesAdapter.data = it
 				setEpisodesViewVisibility(View.VISIBLE)

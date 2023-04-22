@@ -4,6 +4,8 @@ interface GlobalRouter {
 
 	fun open(destination: FragmentDestination)
 
+	fun backTo(destination: FragmentDestination)
+
 	fun replace(fragmentDestination: FragmentDestination)
 
 	fun newRoot(fragmentDestination: FragmentDestination)

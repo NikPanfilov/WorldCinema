@@ -2,12 +2,11 @@ package com.nikpanfilov.movie.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.nikpanfilov.core.navigation.holders.EpisodeHolder
 import com.nikpanfilov.core.navigation.holders.MovieHolder
-import com.nikpanfilov.core.navigation.holders.MovieInfoHolder
 import com.nikpanfilov.core.network.utils.CoroutineNetworkExceptionHandler
 import com.nikpanfilov.movie.domain.entity.Episode
 import com.nikpanfilov.movie.domain.entity.Movie
-import com.nikpanfilov.movie.domain.entity.toEpisodeHolder
 import com.nikpanfilov.movie.domain.entity.toMovie
 import com.nikpanfilov.movie.domain.usecase.GetEpisodesUseCase
 import kotlinx.coroutines.flow.Flow
@@ -41,19 +40,29 @@ class MovieViewModel(private val router: MovieRouter, private val getEpisodesUse
 		}
 	}
 
-	fun navigateToComments() {
-		//
+	fun navigateToChat() {
+		router.navigateToChat(movie.chatInfo.chatId, movie.chatInfo.chatName)
 	}
 
 	fun navigateToEpisode(episode: Episode) {
-		router.navigateToEpisode(episode.toEpisodeHolder(), movie.toMovieInfoHolder())
+		router.navigateToEpisode(episode.toEpisodeHolder(movie))
 	}
 
-	private fun Movie.toMovieInfoHolder() = MovieInfoHolder(
-		id = movieId,
+	fun navigateBack() {
+		router.navigateBack()
+	}
+
+	private fun Episode.toEpisodeHolder(movie: Movie) = EpisodeHolder(
+		episodeId = episodeId,
 		name = name,
-		poster = poster,
-		years = getYears(episodesFlow.value!!)
+		description = description,
+		filePath = filePath,
+		movieId = movie.movieId,
+		movieName = movie.name,
+		moviePoster = movie.poster,
+		movieYears = getYears(episodesFlow.value!!),
+		chatId = movie.chatInfo.chatId,
+		chatName = movie.chatInfo.chatName
 	)
 
 	private fun getYears(episodes: List<Episode>): String {

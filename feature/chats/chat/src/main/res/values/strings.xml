@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="today">Сегодня</string>
+	<string name="author_date">Макс Потапов • 18:40</string>
+	<string name="divider"> • </string>
+	<string name="text">Мне кажется, достойное завершение. Кто бы что ни говорил, а мне понравилось.</string>
+	<string name="chat_name">Игра престолов</string>
+	<string name="message_hint">Напишите сообщение…</string>
+	<string name="message_error">Сообщение не может быть пустым</string>
+</resources>

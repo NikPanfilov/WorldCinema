@@ -21,7 +21,9 @@ val signUpModule = module {
 			validateFirstNameUseCase = get(),
 			validateLastNameUseCase = get(),
 			validateEmailUseCase = get(),
-			validatePasswordUseCase = get()
+			validatePasswordUseCase = get(),
+			createFavouriteCollectionUseCase = get(),
+			saveUserIdUseCase = get()
 		)
 	}
 

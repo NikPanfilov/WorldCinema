@@ -2,8 +2,6 @@ package com.nikpanfilov.splash.data.storage
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
-import com.nikpanfilov.core.network.token.data.storage.SharedPrefsDataStorage
 
 class FirstStartDataStorageImpl(context: Context) : FirstStartDataStorage {
 

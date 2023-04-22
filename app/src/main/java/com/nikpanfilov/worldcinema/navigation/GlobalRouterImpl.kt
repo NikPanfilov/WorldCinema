@@ -15,6 +15,10 @@ class GlobalRouterImpl(
 		router.navigateTo(CreateInstanceFragmentScreen(destination))
 	}
 
+	override fun backTo(destination: FragmentDestination) {
+		router.backTo(CreateInstanceFragmentScreen(destination))
+	}
+
 	override fun replace(fragmentDestination: FragmentDestination) {
 		router.replaceScreen(
 			CreateInstanceFragmentScreen(fragmentDestination)

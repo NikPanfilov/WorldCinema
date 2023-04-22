@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<ImageView
+		android:id="@+id/backButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="20dp"
+		android:src="@drawable/arrow_back"
+		app:layout_constraintBottom_toBottomOf="@+id/toolbarTitleTextView"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/toolbarTitleTextView" />
+
+	<TextView
+		android:id="@+id/toolbarTitleTextView"
+		style="@style/TextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="32dp"
+		android:layout_marginTop="16dp"
+		android:text="@string/edit_collection"
+		app:layout_constraintStart_toEndOf="@+id/backButton"
+		app:layout_constraintTop_toTopOf="parent"
+		android:textColor="@color/white"
+		android:textSize="20sp" />
+
+	<EditText
+		android:id="@+id/nameEditText"
+		style="@style/EditText"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginTop="40dp"
+		android:hint="@string/name"
+		android:inputType="text"
+		android:paddingHorizontal="16dp"
+		android:paddingVertical="11dp"
+		android:textColor="@color/white"
+		android:textColorHint="@color/gray"
+		android:textSize="14sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/toolbarTitleTextView" />
+
+	<ImageView
+		android:id="@+id/iconImageView"
+		android:layout_width="72dp"
+		android:layout_height="72dp"
+		android:layout_marginEnd="24dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/ic_placeholder"
+		app:layout_constraintEnd_toStartOf="@+id/chooseIconButton"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/nameEditText"/>
+
+	<Button
+		android:id="@+id/chooseIconButton"
+		style="@style/Button.Secondary"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="16dp"
+		android:text="@string/choose_icon"
+		app:layout_constraintBottom_toBottomOf="@+id/iconImageView"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.5"
+		app:layout_constraintStart_toEndOf="@+id/iconImageView"
+		app:layout_constraintTop_toTopOf="@+id/iconImageView" />
+
+	<Button
+		android:id="@+id/saveButton"
+		style="@style/Button.Primary"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginTop="44dp"
+		android:text="@string/save"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/iconImageView"/>
+
+	<Button
+		android:id="@+id/deleteButton"
+		style="@style/Button.Secondary"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginTop="16dp"
+		android:text="@string/delete"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/saveButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

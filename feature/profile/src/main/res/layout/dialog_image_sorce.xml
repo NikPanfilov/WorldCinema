@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="300dp"
+	android:layout_height="wrap_content"
+	android:background="@drawable/dialog"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/dateTextView"
+		style="@style/TextView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="16dp"
+		android:gravity="center"
+		android:text="@string/image_source"
+		android:textColor="@color/white"
+		android:textSize="16sp" />
+
+	<Button
+		android:id="@+id/fromInternetButton"
+		style="@style/Button.Secondary"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:includeFontPadding="false"
+		android:paddingTop="0dp"
+		android:text="@string/from_internet" />
+
+	<Button
+		android:id="@+id/fromStorageButton"
+		style="@style/Button.Secondary"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:text="@string/from_storage" />
+
+	<Button
+		android:id="@+id/fromCameraButton"
+		style="@style/Button.Secondary"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:text="@string/from_camera" />
+</LinearLayout>

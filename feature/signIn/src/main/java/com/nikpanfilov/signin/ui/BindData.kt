@@ -1,6 +1,7 @@
 package com.nikpanfilov.signin.ui
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LifecycleCoroutineScope
 import com.nikpanfilov.extensions.bindError
 import com.nikpanfilov.extensions.bindText
@@ -29,6 +30,7 @@ internal fun FragmentSignInBinding.bindData(viewModel: SignInViewModel, scope: L
 		}
 
 		stateFlow.launch(scope) {
+			Log.i("state", it.toString())
 			if (it is SignInState.Content) {
 				if (it.sendState is SignInSendState.Success) {
 					navigateToMain()

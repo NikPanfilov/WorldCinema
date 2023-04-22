@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="name_placeholder">Панфилов Никита</string>
+	<string name="email_placeholder">npanfilov2003@gmail.com</string>
+	<string name="change_avatar">Изменить</string>
+	<string name="chats">Обсуждения</string>
+	<string name="history">История</string>
+	<string name="settings">Настройки</string>
+	<string name="log_out">Выход</string>
+	<string name="image_source">Откуда берём картинку?</string>
+	<string name="from_internet">Из интернета</string>
+	<string name="from_storage">Из памяти</string>
+	<string name="from_camera">Сделать фото</string>
+	<string name="image_url">Введите ссылку на картинку</string>
+	<string name="ok">OK</string>
+	<string name="url_hint">Вставьте сюда ссылку</string>
+</resources>

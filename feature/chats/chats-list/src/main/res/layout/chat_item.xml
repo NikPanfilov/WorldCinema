@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginVertical="8dp"
+	android:background="@color/black">
+
+	<ImageView
+		android:id="@+id/chatPosterImageView"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:adjustViewBounds="true"
+		android:scaleType="fitCenter"
+		app:layout_constraintEnd_toStartOf="@+id/guideline"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:srcCompat="@drawable/movie_poster_placeholder" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		app:layout_constraintGuide_percent="0.2" />
+
+	<TextView
+		android:id="@+id/movieNameTextView"
+		style="@style/TextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:text="@string/movie_name"
+		android:textColor="@color/white"
+		android:textSize="14sp"
+		app:layout_constraintStart_toStartOf="@+id/guideline"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/messageTextView"
+		style="@style/TextView"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="4dp"
+		android:maxLines="2"
+		android:text="@string/message"
+		android:textColor="@color/white"
+		android:textSize="14sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="@+id/movieNameTextView"
+		app:layout_constraintTop_toBottomOf="@+id/movieNameTextView" />
+
+	<View
+		android:id="@+id/chatsView"
+		android:layout_width="0dp"
+		android:layout_height="1dp"
+		android:layout_marginStart="7dp"
+		android:background="@color/divider_color"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/chatPosterImageView"
+		app:layout_constraintTop_toBottomOf="@+id/chatPosterImageView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,8 @@ val signInModule = module {
 			router = get(),
 			signInUseCase = get(),
 			validateEmailUseCase = get(),
-			saveTokenUseCase = get()
+			saveTokenUseCase = get(),
+			saveUserIdUseCase = get()
 		)
 	}
 

@@ -1,5 +1,7 @@
 package com.nikpanfilov.validators
 
+import com.nikpanfilov.shared.validators.R
+
 class ValidateEmailUseCase {
 
 	operator fun invoke(email: String) = when {

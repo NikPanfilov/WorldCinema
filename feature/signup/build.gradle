@@ -57,6 +57,8 @@ dependencies {
 	implementation project(path: ':core:network')
 	implementation project(path: ':core:extensions')
 	implementation project(path: ':shared:validators')
+	implementation project(path: ':shared:collections')
+	implementation project(path: ':shared:profile')
 
 	testImplementation 'junit:junit:4.13.2'
 	androidTestImplementation 'androidx.test.ext:junit:1.1.5'

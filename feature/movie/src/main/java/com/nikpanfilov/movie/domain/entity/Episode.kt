@@ -1,7 +1,5 @@
 package com.nikpanfilov.movie.domain.entity
 
-import com.nikpanfilov.core.navigation.holders.EpisodeHolder
-
 data class Episode(
 	val episodeId: String,
 	val name: String,
@@ -13,17 +11,4 @@ data class Episode(
 	val runtime: Int,
 	val preview: String,
 	val filePath: String
-)
-
-internal fun Episode.toEpisodeHolder() = EpisodeHolder(
-	episodeId = episodeId,
-	name = name,
-	description = description,
-	director = director,
-	stars = stars,
-	year = year,
-	images = images,
-	runtime = runtime,
-	preview = preview,
-	filePath = filePath
 )

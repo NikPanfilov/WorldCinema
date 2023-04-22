@@ -1,12 +1,14 @@
 package com.nikpanfilov.validators
 
+import com.nikpanfilov.shared.validators.R
+
 class ValidateFirstNameUseCase {
 
 	operator fun invoke(name: String) = when {
-		name.isBlank()       -> R.string.firstname_empty
-		name.hasNonLetters() -> R.string.firstname_incorrect_symbols
+		name.isBlank()        -> R.string.firstname_empty
+		name.hasNonLetters()  -> R.string.firstname_incorrect_symbols
 		!name.isNameCorrect() -> R.string.firstname_different_locals
-		else                 -> null
+		else                  -> null
 	}
 
 	private fun String.hasNonLetters(): Boolean {

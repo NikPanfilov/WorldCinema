@@ -1,12 +1,14 @@
 package com.nikpanfilov.validators
 
+import com.nikpanfilov.shared.validators.R
+
 class ValidateLastNameUseCase {
 
 	operator fun invoke(name: String) = when {
-		name.isBlank()       -> R.string.lastname_empty
-		name.hasNonLetters() -> R.string.lastname_incorrect_symbols
+		name.isBlank()        -> R.string.lastname_empty
+		name.hasNonLetters()  -> R.string.lastname_incorrect_symbols
 		!name.isNameCorrect() -> R.string.lastname_different_locals
-		else                 -> null
+		else                  -> null
 	}
 
 	private fun String.hasNonLetters(): Boolean {

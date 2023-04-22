@@ -17,11 +17,22 @@
             <option value="$PROJECT_DIR$/core/network" />
             <option value="$PROJECT_DIR$/core/theme" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/chats" />
+            <option value="$PROJECT_DIR$/feature/chats/chat" />
+            <option value="$PROJECT_DIR$/feature/chats/chats-list" />
+            <option value="$PROJECT_DIR$/feature/collections" />
+            <option value="$PROJECT_DIR$/feature/compilation" />
+            <option value="$PROJECT_DIR$/feature/episode" />
             <option value="$PROJECT_DIR$/feature/main" />
+            <option value="$PROJECT_DIR$/feature/movie" />
+            <option value="$PROJECT_DIR$/feature/profile" />
             <option value="$PROJECT_DIR$/feature/signIn" />
             <option value="$PROJECT_DIR$/feature/signup" />
             <option value="$PROJECT_DIR$/feature/splash" />
             <option value="$PROJECT_DIR$/shared" />
+            <option value="$PROJECT_DIR$/shared/collections" />
+            <option value="$PROJECT_DIR$/shared/movie" />
+            <option value="$PROJECT_DIR$/shared/profile" />
             <option value="$PROJECT_DIR$/shared/validators" />
           </set>
         </option>

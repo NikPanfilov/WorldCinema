@@ -2,10 +2,14 @@ package com.nikpanfilov.worldcinema
 
 import android.app.Application
 import com.nikpanfilov.worldcinema.di.appModule
+import com.nikpanfilov.worldcinema.di.chatsModule
+import com.nikpanfilov.worldcinema.di.collectionsModule
+import com.nikpanfilov.worldcinema.di.compilationModule
 import com.nikpanfilov.worldcinema.di.episodeModule
 import com.nikpanfilov.worldcinema.di.mainModule
 import com.nikpanfilov.worldcinema.di.movieModule
 import com.nikpanfilov.worldcinema.di.networkModule
+import com.nikpanfilov.worldcinema.di.profileModule
 import com.nikpanfilov.worldcinema.di.routerModule
 import com.nikpanfilov.worldcinema.di.signInModule
 import com.nikpanfilov.worldcinema.di.signUpModule
@@ -37,7 +41,7 @@ class App : Application() {
 		startKoin {
 			androidLogger(Level.ERROR)
 			androidContext(this@App)
-			properties(mapOf("BACKEND" to BACKEND_ENDPOINT))
+			properties(mapOf(BACKEND to BACKEND_ENDPOINT))
 			androidFileProperties()
 
 			modules(appModule)
@@ -52,6 +56,10 @@ class App : Application() {
 			modules(mainModule)
 			modules(movieModule)
 			modules(episodeModule)
+			modules(profileModule)
+			modules(collectionsModule)
+			modules(compilationModule)
+			modules(chatsModule)
 		}
 	}
 }

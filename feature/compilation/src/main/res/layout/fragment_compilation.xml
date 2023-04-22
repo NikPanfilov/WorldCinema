@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/black">
+
+	<TextView
+		android:id="@+id/movieNameTextView"
+		style="@style/TextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="24dp"
+		android:text="@string/movie_name_placeholder"
+		android:textColor="@color/white"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<ImageView
+		android:id="@+id/noMoviesImageView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/no_movies"
+		android:visibility="gone"
+		app:layout_constraintBottom_toTopOf="@+id/guideline"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:srcCompat="@drawable/no_movies" />
+
+	<com.yuyakaido.android.cardstackview.CardStackView
+		android:id="@+id/cardStackView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginBottom="32dp"
+		android:layout_marginTop="25dp"
+		android:layout_marginVertical="24dp"
+		app:layout_constraintBottom_toTopOf="@+id/playButton"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/movieNameTextView"
+		tools:listitem="@layout/card_item" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.65" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.25" />
+
+	<TextView
+		android:id="@+id/noMoviesTextView"
+		style="@style/TextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="32dp"
+		android:gravity="center_horizontal|top"
+		android:text="@string/no_movies"
+		android:textColor="@color/gray"
+		android:visibility="gone"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/noMoviesImageView" />
+
+	<ImageButton
+		android:id="@+id/dislikeButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="32dp"
+		android:layout_marginStart="60dp"
+		android:background="@drawable/background_white"
+		android:contentDescription="@string/dislike"
+		android:paddingBottom="7dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:srcCompat="@drawable/ic_dislike_small" />
+
+	<ImageButton
+		android:id="@+id/playButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="32dp"
+		android:background="@drawable/background_orange"
+		android:contentDescription="@string/play"
+		android:paddingBottom="7dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/addToFavouriteButton"
+		app:layout_constraintStart_toEndOf="@+id/dislikeButton"
+		app:srcCompat="@drawable/ic_play" />
+
+	<ImageButton
+		android:id="@+id/addToFavouriteButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="32dp"
+		android:layout_marginEnd="60dp"
+		android:background="@drawable/background_white"
+		android:contentDescription="@string/add_to_favourite"
+		android:paddingBottom="7dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:srcCompat="@drawable/ic_favourite" />
+</androidx.constraintlayout.widget.ConstraintLayout>

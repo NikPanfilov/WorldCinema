@@ -1,5 +1,7 @@
 package com.nikpanfilov.validators
 
+import com.nikpanfilov.shared.validators.R
+
 class ValidatePasswordUseCase {
 
 	companion object {

@@ -1,14 +1,15 @@
 package com.nikpanfilov.episode.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import com.nikpanfilov.core.navigation.OnFragmentChangedListener
 import com.nikpanfilov.core.navigation.holders.EpisodeHolder
-import com.nikpanfilov.core.navigation.holders.MovieInfoHolder
 import com.nikpanfilov.episode.databinding.FragmentEpisodeBinding
 import com.nikpanfilov.episode.presentation.EpisodeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,23 +20,36 @@ class EpisodeFragment : Fragment() {
 	companion object {
 
 		private const val EPISODE = "episode"
-		private const val MOVIE = "movie"
 
-		fun newInstance(episode: EpisodeHolder, movie: MovieInfoHolder) = EpisodeFragment().apply {
-			arguments = bundleOf(EPISODE to episode, MOVIE to movie)
+		fun newInstance(episode: EpisodeHolder) = EpisodeFragment().apply {
+			arguments = bundleOf(EPISODE to episode)
 		}
 	}
 
 	private val binding by lazy { FragmentEpisodeBinding.inflate(layoutInflater) }
 	private val viewModel by viewModel<EpisodeViewModel> {
-		parametersOf(arguments?.get(EPISODE), arguments?.get(MOVIE))
+		parametersOf(arguments?.get(EPISODE))
 	}
+
+	private var listener: OnFragmentChangedListener? = null
 
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
 	): View {
-		binding.bindData(viewModel, viewLifecycleOwner.lifecycleScope)
+		listener?.onFragmentChanged(this)
+		binding.bindData(viewModel)
+
+		requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+			viewModel.navigateBack(binding.playerView.player.getTime())
+		}
 
 		return binding.root
+	}
+
+	override fun onAttach(context: Context) {
+		super.onAttach(context)
+		if (context is OnFragmentChangedListener) {
+			listener = context
+		}
 	}
 }

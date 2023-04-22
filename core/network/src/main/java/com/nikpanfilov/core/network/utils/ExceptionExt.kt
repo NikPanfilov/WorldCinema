@@ -1,5 +1,6 @@
 package com.nikpanfilov.core.network.utils
 
+import android.util.Log
 import com.nikpanfilov.core.network.interceptors.NoConnectivityException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import retrofit2.HttpException
@@ -20,6 +21,7 @@ inline fun CoroutineNetworkExceptionHandler(
  * Маппер для ошибки из ретрофита
  **/
 fun Throwable.toNetworkException(): NetworkException {
+	Log.e("NetworkException", this.message ?: this.toString())
 	val code = when (this) {
 		is NoConnectivityException -> NetworkCode.INTERNET_CONNECTION_ERROR
 		is HttpException           -> code() // код из HttpException

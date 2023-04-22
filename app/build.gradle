@@ -7,6 +7,10 @@ android {
 	namespace 'com.nikpanfilov.worldcinema'
 	compileSdk 33
 
+	buildFeatures {
+		viewBinding = true
+	}
+
 	defaultConfig {
 		applicationId "com.nikpanfilov.worldcinema"
 		minSdk 26
@@ -38,6 +42,7 @@ dependencies {
 	implementation 'androidx.appcompat:appcompat:1.6.1'
 	implementation 'com.google.android.material:material:1.8.0'
 	implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+	implementation 'androidx.fragment:fragment:1.5.5'
 
 	implementation 'io.insert-koin:koin-core:3.3.3'
 	implementation 'io.insert-koin:koin-android:3.3.3'
@@ -48,11 +53,23 @@ dependencies {
 	implementation project(path: ':core:network')
 	implementation project(path: ':core:navigation')
 
+	implementation project(path: ':shared:movie')
+	implementation project(path: ':shared:validators')
+	implementation project(path: ':shared:collections')
+	implementation project(path: ':shared:profile')
+
 	implementation project(path: ':feature:splash')
 	implementation project(path: ':feature:signIn')
 	implementation project(path: ':feature:signup')
-	implementation project(path: ':shared:validators')
 	implementation project(path: ':feature:main')
+	implementation project(path: ':feature:movie')
+	implementation project(path: ':feature:episode')
+	implementation project(path: ':feature:episode')
+	implementation project(path: ':feature:profile')
+	implementation project(path: ':feature:collections')
+	implementation project(path: ':feature:compilation')
+	implementation project(path: ':feature:chats:chats-list')
+	implementation project(path: ':feature:chats:chat')
 
 	testImplementation 'junit:junit:4.13.2'
 	androidTestImplementation 'androidx.test.ext:junit:1.1.5'

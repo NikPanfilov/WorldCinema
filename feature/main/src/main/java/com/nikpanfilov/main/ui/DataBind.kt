@@ -2,14 +2,14 @@ package com.nikpanfilov.main.ui
 
 import android.view.View
 import androidx.lifecycle.LifecycleCoroutineScope
-import com.bumptech.glide.Glide
 import com.nikpanfilov.extensions.launch
+import com.nikpanfilov.extensions.setImage
 import com.nikpanfilov.main.databinding.FragmentMainBinding
 import com.nikpanfilov.main.presentation.MainViewModel
 import com.nikpanfilov.main.ui.adapter.PosterAdapter
 
 internal fun FragmentMainBinding.bindData(viewModel: MainViewModel, scope: LifecycleCoroutineScope) {
-	val trendAdapter = PosterAdapter(viewModel::navigateToMovie, false)
+	val trendAdapter = PosterAdapter(viewModel::navigateToMovie)
 	trendRecyclerView.adapter = trendAdapter
 	viewModel.trendMoviesMutableFlow.launch(scope) {
 		if (it.isEmpty())
@@ -19,7 +19,7 @@ internal fun FragmentMainBinding.bindData(viewModel: MainViewModel, scope: Lifec
 		trendAdapter.data = it
 	}
 
-	val newMovieAdapter = PosterAdapter(viewModel::navigateToMovie, true)
+	val newMovieAdapter = PosterAdapter(viewModel::navigateToMovie)
 	newMovieRecyclerView.adapter = newMovieAdapter
 	viewModel.newMoviesMutableFlow.launch(scope) {
 		if (it.isEmpty())
@@ -29,7 +29,7 @@ internal fun FragmentMainBinding.bindData(viewModel: MainViewModel, scope: Lifec
 		newMovieAdapter.data = it
 	}
 
-	val forYouAdapter = PosterAdapter(viewModel::navigateToMovie, false)
+	val forYouAdapter = PosterAdapter(viewModel::navigateToMovie)
 	forYouRecyclerView.adapter = forYouAdapter
 	viewModel.forYouMoviesMutableFlow.launch(scope) {
 		if (it.isEmpty())
@@ -42,9 +42,7 @@ internal fun FragmentMainBinding.bindData(viewModel: MainViewModel, scope: Lifec
 	viewModel.lastViewMutableFlow.launch(scope) {
 		if (it.isNotEmpty()) {
 			lastViewsVisibility(View.VISIBLE)
-			Glide.with(lastViewImageView)
-				.load(it[0].poster)
-				.into(lastViewImageView)
+			lastViewImageView.setImage(it[0].poster)
 		} else {
 			lastViewsVisibility(View.GONE)
 		}
@@ -53,9 +51,7 @@ internal fun FragmentMainBinding.bindData(viewModel: MainViewModel, scope: Lifec
 
 	viewModel.coverMutableFlow.launch(scope) {
 		if (it != null) {
-			Glide.with(coverImageView)
-				.load(it)
-				.into(coverImageView)
+			coverImageView.setImage(it.backgroundImage)
 		}
 	}
 }
