@@ -35,7 +35,6 @@ class ChatDataSourceImpl(private val client: OkHttpClient, private val moshi: Mo
 	}
 
 	override fun disconnect() {
-		client.dispatcher.executorService.shutdown()
 		webSocket.close(NORMAL, null)
 	}
 
